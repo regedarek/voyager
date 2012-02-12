@@ -41,6 +41,10 @@ group :development, :test do
   gem 'launchy'
 end
 
+group :development do
+  gem 'populator'
+end
+
 group :test do
   # Pretty printed test output
   gem 'turn', :require => false
