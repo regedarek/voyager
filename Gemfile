@@ -42,6 +42,12 @@ group :development, :test do
   gem 'factory_girl_rails'
 
   gem 'launchy'
+
+  group :autotest do 
+    gem 'ZenTest'
+    gem 'autotest'
+    gem 'autotest-rails'
+  end
 end
 
 group :development do
