@@ -4,6 +4,7 @@ Feature: Homepage
   As a guest
   I want go to the page
 
+  @wip
   Scenario: Show homepage
     Given I am a guest
     When I go to the homepage
