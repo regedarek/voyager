@@ -72,6 +72,7 @@ GEM
     ffi (1.0.11)
     gherkin (2.7.3)
       json (>= 1.4.6)
+    haml (3.1.4)
     heroku (2.11.0)
       launchy (>= 0.3.2)
       rest-client (~> 1.6.1)
@@ -184,6 +185,7 @@ DEPENDENCIES
   database_cleaner
   execjs
   factory_girl_rails
+  haml
   heroku
   jquery-rails
   launchy
