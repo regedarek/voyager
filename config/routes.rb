@@ -1,4 +1,7 @@
 Voyager::Application.routes.draw do
+  get "login" => "users#new", :as => :login
+  
+  resources :users
   root :to => "home#index"
 
   # The priority is based upon order of creation:
