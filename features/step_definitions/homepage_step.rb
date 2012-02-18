@@ -9,3 +9,7 @@ Then /^I should be on the homepage$/ do
   current_path == root_path
 end
 
+When /^I follow "([^"]*)"$/ do |link|
+  follow(link)
+end
+
