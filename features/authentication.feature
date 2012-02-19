@@ -9,11 +9,11 @@ Feature: Authentication
     Given I am a guest
     And I go to the homepage
     When I follow sign up
-    And I fill in "username" with "testuser"
-    And I fill in "email" with "test@example.com"
-    And I fill in "password" with "secret"
-    And I fill in "password_confirmation" with "secret"
-    And I submit
+    And I fill in "Username" with "testuser"
+    And I fill in "Email" with "test@example.com"
+    And I fill in "Password" with "secret"
+    And I fill in "Password confirmation" with "secret"
+    And I press "Create new user"
     Then I should be on the homepage
     And I should be login
 

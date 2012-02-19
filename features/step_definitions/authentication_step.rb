@@ -1,12 +1,14 @@
-When /^I fill in "([^"]*)" with "([^"]*)"$/ do |arg1, arg2|
-  pending # express the regexp above with the code you wish you had
+When /^I fill in "([^"]*)" with "([^"]*)"$/ do |field, value|
+  page.has_selector?('form')
+  fill_in field, :with => value
 end
 
-When /^I submit$/ do
-  pending # express the regexp above with the code you wish you had
+When /^I press "([^"]*)"$/ do |button|
+  page.has_selector?('form')
+  click_button(button)
 end
 
 Then /^I should be login$/ do
-  pending # express the regexp above with the code you wish you had
+  page.has_content?('Signed up!')
 end
 
