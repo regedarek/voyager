@@ -5,6 +5,7 @@ end
 
 When /^I press "([^"]*)"$/ do |button|
   page.has_selector?('form')
+  # page.has_selector?('input')
   click_button(button)
 end
 

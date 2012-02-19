@@ -1,5 +1,5 @@
 Voyager::Application.routes.draw do
-  get "login" => "users#new", :as => :login
+  get "signup" => "users#new", :as => :signup
   
   resources :users
   root :to => "home#index"

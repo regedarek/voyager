@@ -8,7 +8,7 @@ Feature: Authentication
   Scenario: Sign up successful
     Given I am a guest
     And I go to the homepage
-    When I follow sign up
+    When I follow "Sign up"
     And I fill in "Username" with "testuser"
     And I fill in "Email" with "test@example.com"
     And I fill in "Password" with "secret"

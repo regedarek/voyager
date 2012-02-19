@@ -10,8 +10,7 @@ Then /^I should be on the homepage$/ do
   current_path == root_path
 end
 
-When /^I follow sign up$/ do 
-  visit(login_path)
+When /^I follow "([^"]*)"$/ do |link_text|
+  page.has_link?(link_text)
+  click_link(link_text)
 end
-
-
