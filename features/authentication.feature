@@ -36,6 +36,10 @@ Feature: Authentication
       | testuser | user@example.com |          | secret        | Password can't be blank              |
       | testuser | user@example.com | secret   |               | Password confirmation can't be blank |
 
+    Scenarios: without password confirmation
+      | username | email            | password | password_conf | message                              |
+      | testuser | user@example.com | secret   | bad_password  | Password doesn't match confirmation  |
+     
 
 
   Scenario: Sign in successful

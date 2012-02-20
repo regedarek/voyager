@@ -20,6 +20,8 @@ Then /^I should be on the the sign up page$/ do
 end
 
 Then /^I should see "([^"]*)"$/ do |message|
-  page.has_content?(message)
+  page.has_content?(message).should == true #must_be true
+  #p page.find('.error_messages').find('li').value
+  #p page.body
 end
 
