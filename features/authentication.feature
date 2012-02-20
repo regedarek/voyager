@@ -24,17 +24,17 @@ Feature: Authentication
     And I fill in "Username" with "<username>"
     And I fill in "Email" with "<email>"
     And I fill in "Password" with "<password>"
-    And I fill in "Password confirmation" with "<passord_confirmation>"
+    And I fill in "Password confirmation" with "<passord_conf>"
     And I press "Create new user"
     Then I should be on the the sign up page
     And I should see "<message>"
 
     Scenarios: without presence
-      | username | email            | password | password_confirmation | message                   |
-      |          | user@example.com | secret   | secret                | Username must be presenc  |
-      | testuser |                  | secret   | secret                |                           |
-      | testuser | user@example.com |          | secret                |                           |
-      | testuser | user@example.com | secret   |                       |                           |
+      | username | email            | password | password_conf | message                              |
+      |          | user@example.com | secret   | secret        | Username can't be blank              |
+      | testuser |                  | secret   | secret        | Email can't be blank                 |
+      | testuser | user@example.com |          | secret        | Password can't be blank              |
+      | testuser | user@example.com | secret   |               | Password confirmation can't be blank |
 
 
 

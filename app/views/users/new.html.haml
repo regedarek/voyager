@@ -1,4 +1,11 @@
 = form_for @user do |f|
+  - if @user.errors.any?
+    .error_messages
+      %h2 Form is invalid
+      %ul
+        - for message in @user.errors.full_messages
+          %li= message
+
   = f.label :username
   = f.text_field :username
   %br
