@@ -14,7 +14,7 @@ end
 
 
 Then /^I should be on the the sign up page$/ do
-  current_path == signup_path
+  current_path.should == users_path
 end
 
 Then /^I should see "([^"]*)"$/ do |message|

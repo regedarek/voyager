@@ -24,7 +24,7 @@ Feature: Authentication
     And I fill in "Username" with "<username>"
     And I fill in "Email" with "<email>"
     And I fill in "Password" with "<password>"
-    And I fill in "Password confirmation" with "<passord_conf>"
+    And I fill in "Password confirmation" with "<password_conf>"
     And I press "Create new user"
     Then I should be on the the sign up page
     And I should see "<message>"
