@@ -14,7 +14,7 @@ Feature: Authentication
     And I fill in "Password confirmation" with "secret"
     And I press "Create new user"
     Then I should be on the homepage
-    And I should be register 
+    And I should see "Signed up!" 
 
   Scenario Outline: Sign up fail
     Given I am a guest
@@ -49,7 +49,7 @@ Feature: Authentication
     And I fill in "Password" with "secret"
     And I press "Log in"
     Then I should be on the homepage
-    And I should be logged in
+    And I should see "Logged in!"
 
   Scenario: Sign in fail
 

@@ -10,12 +10,8 @@ When /^I press "([^"]*)"$/ do |button|
   click_button(button)
 end
 
-Then /^I should be register$/ do
-  page.has_content?('Signed up!')
-end
-
 Then /^I should be logged in$/ do
-  page.has_content?('Logged in')
+  page.has_content?('Logged in').should == true
 end
 
 
