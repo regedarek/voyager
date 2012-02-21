@@ -14,7 +14,7 @@ Feature: Authentication
     And I fill in "Password confirmation" with "secret"
     And I press "Create new user"
     Then I should be on the homepage
-    And I should be login
+    And I should be register 
 
   Scenario Outline: Sign up fail
     Given I am a guest
@@ -40,7 +40,17 @@ Feature: Authentication
       | testuser | user@example.com | secret   | bad_password  | Password doesn't match confirmation  |
      
 
+  @wip
   Scenario: Sign in successful
+    Given I am a guest
+    And I go to the homepage
+    When I follow "Log in"
+    And I fill in "Email" with "test@example.com"
+    And I fill in "Password" with "secret"
+    And I press "Log in"
+    Then I should be on the homepage
+    And I should be logged in
+
   Scenario: Sign in fail
 
   Scenario: Sign out

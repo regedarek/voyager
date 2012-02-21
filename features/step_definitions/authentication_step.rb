@@ -10,8 +10,12 @@ When /^I press "([^"]*)"$/ do |button|
   click_button(button)
 end
 
-Then /^I should be login$/ do
+Then /^I should be register$/ do
   page.has_content?('Signed up!')
+end
+
+Then /^I should be logged in$/ do
+  page.has_content?('Logged in')
 end
 
 
@@ -20,8 +24,6 @@ Then /^I should be on the the sign up page$/ do
 end
 
 Then /^I should see "([^"]*)"$/ do |message|
-  page.has_content?(message).should == true #must_be true
-  #p page.find('.error_messages').find('li').value
-  #p page.body
+  page.has_content?(message).should == true 
 end
 
