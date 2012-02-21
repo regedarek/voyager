@@ -8,51 +8,43 @@ def i_have_user
 end
 
 def fill_in_fields(elements)
-  elements[:fields].each do |hash|
-    hash.each_pair do |key, val|
-      page.has_field?(key)
-      fill_in key, :with => val
-    end
+  elements.each_pair do |key, val|
+    page.has_field?(key)
+    fill_in key, :with => val
   end
 end
 
-def sign_up(elements, path)
+def sign_up(elements, path, message)
   visit(root_path)
   page.has_link?("Sign up")
   click_link("Sign up")  
   page.has_selector?('form')
-  
   fill_in_fields(elements)
-  
   page.has_button?("Create new user")
   click_button "Create new user"
   current_path.should == path
-  page.has_content?(elements[:message]).should == true
+  page.has_content?(message).should == true
 end
 
-describe "Authentication" do
-  it "sign up successful" do
-    arr = { :fields => ["Username" => "testuser", "Email" => "test@example.com", 
-              "Password" => "secret", "Password confirmation" => "secret" ], 
-            :message => "Signed up!" }
+######################################
 
-    sign_up(arr, root_path)
+describe "Authentication" do
+  before(:each) do
+    @hash = { "Username" => "testuser", "Email" => "test@example.com", 
+              "Password" => "secret", "Password confirmation" => "secret" }     
+  end
+  
+  it "sign up successful" do
+    message = "Signed up!" 
+    sign_up(@hash, root_path, message)
   end
   
   it "Sign up fail" do
-    visit root_path
-    page.has_link?("Sign up")
-    click_link("Sign up")
-    page.has_selector?('form')
-    
-    pending
-    [ "Username" => "testuser", "Email" => "test@example.com", 
-      "Password" => "secret", "Password confirmation" => "secret" ]
-    fill_in_fields(arr)
-    
-    page.has_button?("Create new user")
-    click_button "Create new user"
-    current_path.should == root_path
-    page.has_content?("Signed up!").shiuld == true
+    ["Username", "Email", "Password", "Password confirmation"].each do |el|
+      @hash[el], x = "", @hash[el]
+      message = "#{el} can't be blank"
+      sign_up(@hash, users_path, message)
+      @hash[el] = x
+    end
   end
 end
