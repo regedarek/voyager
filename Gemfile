@@ -59,6 +59,8 @@ group :test do
   gem 'turn', :require => false
 end
 
+# Authentication
+gem 'sorcery'
 
 gem 'therubyracer'
 gem 'execjs'
