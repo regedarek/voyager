@@ -29,22 +29,51 @@ end
 ######################################
 
 describe "Authentication" do
-  before(:each) do
-    @hash = { "Username" => "testuser", "Email" => "test@example.com", 
-              "Password" => "secret", "Password confirmation" => "secret" }     
-  end
-  
-  it "sign up successful" do
-    message = "Signed up!" 
-    sign_up(@hash, root_path, message)
-  end
-  
-  it "Sign up fail" do
-    ["Username", "Email", "Password", "Password confirmation"].each do |el|
-      @hash[el], x = "", @hash[el]
-      message = "#{el} can't be blank"
-      sign_up(@hash, users_path, message)
-      @hash[el] = x
+  describe "Sign up" do
+    before(:each) do
+      @hash = { "Username" => "testuser", "Email" => "test@example.com", 
+                "Password" => "secret", "Password confirmation" => "secret" }     
     end
+  
+    it "sign up successful" do
+      message = "Signed up!" 
+      sign_up(@hash, root_path, message)
+    end
+  
+    it "Sign up fail" do
+      ["Username", "Email", "Password", "Password confirmation"].each do |el|
+        @hash[el], x = "", @hash[el]
+        message = "#{el} can't be blank"
+        sign_up(@hash, users_path, message)
+        @hash[el] = x
+      end
+    end
+  end
+  
+  describe "Sign in" do
+    it "Sign in successful" do
+      #pending
+      i_have_user
+      visit root_path
+      click_link "Log in"
+      fill_in_fields("Email" => "test@example.con", "Password" => "secret" )
+      click_button "Log in"
+      current_path == root_path
+      page.has_content?("Logged in!").should == true
+    #  Given I am a not register user
+    #  And I go to the homepage
+    #  When I follow "Log in"
+    #  And I fill in "Email" with "test@example.com"
+    #  And I fill in "Password" with "secret"
+    #  And I press "Log in"
+    #  Then I should be on the homepage
+    #  And I should see "Logged in!"
+    end
+    
+    it "Sign in fail"
+  end
+  
+  describe "Sign out" do
+    it "sign out successful"
   end
 end
