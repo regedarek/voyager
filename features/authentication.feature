@@ -42,7 +42,7 @@ Feature: Authentication
 
   @wip
   Scenario: Sign in successful
-    Given I am a guest
+    Given I am a not register user
     And I go to the homepage
     When I follow "Log in"
     And I fill in "Email" with "test@example.com"

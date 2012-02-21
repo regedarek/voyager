@@ -1,3 +1,9 @@
+Given /^I am a not register user$/ do
+  User.create!(:email => "test@example.com", :password => "secret", 
+	"password_confirmation" => "secret", :username => "testuser")
+end
+
+
 When /^I fill in "([^"]*)" with "([^"]*)"$/ do |field, value|
   page.has_selector?('form')
   page.has_field?(field)
