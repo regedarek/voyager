@@ -16,7 +16,6 @@ Feature: Authentication
     Then I should be on the homepage
     And I should be login
 
-  @wip
   Scenario Outline: Sign up fail
     Given I am a guest
     And I go to the homepage
@@ -40,7 +39,6 @@ Feature: Authentication
       | username | email            | password | password_conf | message                              |
       | testuser | user@example.com | secret   | bad_password  | Password doesn't match confirmation  |
      
-
 
   Scenario: Sign in successful
   Scenario: Sign in fail
