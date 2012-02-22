@@ -26,6 +26,17 @@ def sign_up(elements, path, message)
   page.has_content?(message).should == true
 end
 
+def sign_in(elements, path, message)
+  i_have_user
+  visit root_path
+  click_link "Log in"
+  page.has_selector?('form')
+  fill_in_fields(elements)
+  page.has_button?("Log in")
+  click_button "Log in"
+  current_path.should == path
+  page.has_content?(message).should == true
+end
 ######################################
 
 describe "Authentication" do
@@ -51,19 +62,16 @@ describe "Authentication" do
   end
   
   describe "Sign in" do
-    it "successful" do   
-      i_have_user
-      visit root_path
-      click_link "Log in"
-      page.has_selector?('form')
-      fill_in_fields({"Email" => "test@example.com", "Password" => "secret"})
-      page.has_button?("Log in")
-      click_button "Log in"
-      current_path.should == root_path
-      page.has_content?("Logged in!").should == true
+    it "successful" do 
+      sign_in({"Email" => "test@example.com", "Password" => "secret"}, root_path, "Logged in!")
     end
     
-    it "Sign in fail"
+    it "fail" do
+      sign_in({"Email" => "bad@example.com", "Password" => "secret"}, sessions_path, 
+		"Email or password was invalid")
+      sign_in({"Email" => "test@example.com", "Password" => "bad"}, sessions_path, 
+		"Email or password was invalid")
+    end
   end
   
   describe "Sign out" do
