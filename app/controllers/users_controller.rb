@@ -5,10 +5,10 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(params[:user])
-    if @user.save
+    if @user.save && verify_recaptcha(:model => @user, :message => "Oh! It's error with reCAPTCHA!")
       redirect_to root_path, :notice => "Signed up!"
     else
-      render "new"
+      render :new
     end
   end
 
