@@ -51,9 +51,7 @@ describe "Authentication" do
   end
   
   describe "Sign in" do
-    it "successful" do
-      # pending
-      
+    it "successful" do   
       i_have_user
       visit root_path
       click_link "Log in"
@@ -63,15 +61,6 @@ describe "Authentication" do
       click_button "Log in"
       current_path.should == root_path
       page.has_content?("Logged in!").should == true
-      
-    #  Given I am a not register user
-    #  And I go to the homepage
-    #  When I follow "Log in"
-    #  And I fill in "Email" with "test@example.com"
-    #  And I fill in "Password" with "secret"
-    #  And I press "Log in"
-    #  Then I should be on the homepage
-    #  And I should see "Logged in!"
     end
     
     it "Sign in fail"
