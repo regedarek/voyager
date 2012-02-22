@@ -10,14 +10,22 @@ describe SessionsController do
   end
 
   describe "POST 'create'" do
-    it "creates a new session" do
-      post :create    
+    it "should get create" do
+      get :create
+      response.should be_success
     end
+  end
 
-    it "redirect to root" do
-      pending
-      post :create
+  describe "DELETE 'destroy'" do
+    it "should sign out successful" do
+      @user = User.create!( :email => "test@example.com", 
+                            :password => "secret", 
+	                          :password_confirmation => "secret", 
+                            :username => "testuser") 
+      login_user @user
+      get :destroy
       response.should redirect_to root_path
+      flash[:notice].should eq("Logged out!")
     end
   end
 end
