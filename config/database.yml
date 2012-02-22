@@ -49,10 +49,11 @@ test: &test
 production:
   adapter: postgresql
   encoding: unicode
-  database: voyager_production
+  database: hhgyhlysez #voyager_production
+  host: @ec2-107-21-206-252.compute-1.amazonaws.com
   pool: 5
-  username: voyager
-  password: 
+  username: hhgyhlysez
+  password: SFOh27m891V-K-Fy-IsP
 
 cucumber:
   <<: *test
