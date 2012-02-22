@@ -47,8 +47,7 @@ describe "Authentication" do
     end
   
     it "successful" do
-      message = "Signed up!" 
-      sign_up(@hash, root_path, message)
+      sign_up(@hash, root_path, "Signed up!")
     end
   
     it "fail" do
@@ -75,6 +74,12 @@ describe "Authentication" do
   end
   
   describe "Sign out" do
-    it "sign out successful"
+    it "successful" do
+      sign_in({"Email" => "test@example.com", "Password" => "secret"}, root_path, "Logged in!")
+      current_path.should == root_path
+      click_link "Log out"
+      current_path.should == root_path
+      page.has_content?("Logged out!").should == true
+    end
   end
 end
