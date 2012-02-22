@@ -5,3 +5,22 @@
  *= require_self
  *= require_tree . 
 */
+
+.simple_form label {  
+  float: left;  
+  width: 200px;  
+  text-align: left;  
+  margin: 2px 10px;  
+}  
+
+.simple_form input {
+  width: 300px;
+}
+
+.simple_form input.button {
+  width: 150px;
+  margin-left: 220px;
+}
+.simple_form div.input {  
+  margin-bottom: 10px;  
+}  
