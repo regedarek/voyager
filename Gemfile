@@ -61,6 +61,7 @@ end
 
 # Authentication
 gem 'sorcery'
+gem 'recaptcha', :require => "recaptcha/rails"
 
 gem 'therubyracer'
 gem 'execjs'
