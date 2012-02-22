@@ -21,6 +21,7 @@ gem 'haml-rails'
 
 gem 'jquery-rails'
 
+gem 'simple_form'
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
@@ -43,7 +44,7 @@ group :development, :test do
 
   gem 'launchy'
 
-  group :autotest do 
+  group :autotest do
     gem 'ZenTest'
     gem 'autotest'
     gem 'autotest-rails'
