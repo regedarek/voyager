@@ -35,12 +35,12 @@ describe "Authentication" do
                 "Password" => "secret", "Password confirmation" => "secret" }     
     end
   
-    it "sign up successful" do
+    it "successful" do
       message = "Signed up!" 
       sign_up(@hash, root_path, message)
     end
   
-    it "Sign up fail" do
+    it "fail" do
       ["Username", "Email", "Password", "Password confirmation"].each do |el|
         @hash[el], x = "", @hash[el]
         message = "#{el} can't be blank"
@@ -51,15 +51,19 @@ describe "Authentication" do
   end
   
   describe "Sign in" do
-    it "Sign in successful" do
-      #pending
+    it "successful" do
+      # pending
+      
       i_have_user
       visit root_path
       click_link "Log in"
-      fill_in_fields("Email" => "test@example.con", "Password" => "secret" )
+      page.has_selector?('form')
+      fill_in_fields({"Email" => "test@example.com", "Password" => "secret"})
+      page.has_button?("Log in")
       click_button "Log in"
-      current_path == root_path
+      current_path.should == root_path
       page.has_content?("Logged in!").should == true
+      
     #  Given I am a not register user
     #  And I go to the homepage
     #  When I follow "Log in"
