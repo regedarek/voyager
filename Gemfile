@@ -21,7 +21,10 @@ gem 'haml-rails'
 
 gem 'jquery-rails'
 
+# Form builder
 gem 'simple_form'
+gem 'country_select'
+
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
