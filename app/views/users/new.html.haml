@@ -1,4 +1,4 @@
-= form_for @user do |f|
+= simple_form_for @user do |f|
   - if @user.errors.any?
     .error_messages
       %h2 Form is invalid
@@ -6,22 +6,9 @@
         - for message in @user.errors.full_messages
           %li= message
 
-  = f.label :username
-  = f.text_field :username
-  %br
-
-  = f.label :email
-  = f.text_field :email
-  %br
-
-  = f.label :password
-  = f.password_field :password
-  %br
-
-  = f.label :password_confirmation
-  = f.password_field :password_confirmation
-  %br
+  = f.input :username
+  = f.input :email
+  = f.input :password
+  = f.input :password_confirmation
   = recaptcha_tags
-  
-  = f.submit "Create new user"
-
+  = f.button :submit, "Create new user"
