@@ -20,6 +20,7 @@ def sign_up(elements, path, message)
   click_link("Sign up")  
   page.has_selector?('form')
   fill_in_fields(elements)
+  UsersController.stub(:verify_recaptcha).and_return(true)
   page.has_button?("Create new user")
   click_button "Create new user"
   current_path.should == path
