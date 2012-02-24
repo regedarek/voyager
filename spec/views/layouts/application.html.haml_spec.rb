@@ -24,9 +24,9 @@ describe "layouts/application.html.haml" do
         pending
         #login_user
         #p current_user
-        login
-        render
-        rendered.should =~ /Log out/
+        #login
+        #render
+        #rendered.should =~ /Log out/
       end
     end
   end

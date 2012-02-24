@@ -5,4 +5,7 @@
   = label_tag :password
   = password_field_tag :password, params[:password]
 
+  = check_box_tag :remember_me, 1, params[:remember_me]
+  = label_tag :remember_me
+  
   = submit_tag "Log in"

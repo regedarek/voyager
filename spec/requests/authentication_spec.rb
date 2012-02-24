@@ -27,12 +27,13 @@ def sign_up(elements, path, message)
   page.has_content?(message).should == true
 end
 
-def sign_in(elements, path, message)
+def sign_in(elements, path, message, remember_me = false)
   i_have_user
   visit root_path
   click_link "Log in"
   page.has_selector?('form')
   fill_in_fields(elements)
+  check('Remember me') if remember_me
   page.has_button?("Log in")
   click_button "Log in"
   current_path.should == path
@@ -62,8 +63,12 @@ describe "Authentication" do
   end
   
   describe "Sign in" do
-    it "successful" do 
-      sign_in({"Email" => "test@example.com", "Password" => "secret"}, root_path, "Logged in!")
+    context "successful" do
+      it { sign_in({"Email" => "test@example.com", "Password" => "secret"},root_path, "Logged in!") }
+      
+      it "and rememeber user" do
+        sign_in({"Email" => "test@example.com", "Password" => "secret"},root_path, "Logged in!", true)
+      end
     end
     
     it "fail" do
