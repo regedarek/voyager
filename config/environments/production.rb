@@ -68,5 +68,5 @@ ActionMailer::Base.smtp_settings = {
   :domain => 'voyager-dev.herokuapp.com',
   :authentication => :plain,
   :user_name => 'mkrajewski90@gmail.com',
-  :password => 'mk1990'
+  :password => 'secret'
 } 
