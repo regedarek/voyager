@@ -9,3 +9,9 @@
   = label_tag :remember_me
   
   = submit_tag "Log in"
+
+%h1 Forgot your password?
+
+= form_tag password_resets_path do
+  = text_field_tag :email
+  = submit_tag "Reset my password"

@@ -17,8 +17,8 @@ describe "layouts/application.html.haml" do
   describe "navigation" do
     context "authentication" do
       it "renders links for guest" do
- 	pending "errors, todo in future"
-	render
+ 	      pending "errors, todo in future"
+	      render
         rendered.should =~ /Sign up/   
         rendered.should =~ /Log in/
       end

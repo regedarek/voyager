@@ -14,6 +14,13 @@ def fill_in_fields(elements)
   end
 end
 
+def visit_sign_in_page
+  i_have_user
+  visit root_path
+  click_link "Log in"
+  page.has_selector?('form')
+end
+  
 def sign_up(elements, path, message)
   visit(root_path)
   page.has_link?("Sign up")
@@ -28,10 +35,7 @@ def sign_up(elements, path, message)
 end
 
 def sign_in(elements, path, message, remember_me = false)
-  i_have_user
-  visit root_path
-  click_link "Log in"
-  page.has_selector?('form')
+  visit_sign_in_page
   fill_in_fields(elements)
   check('Remember me') if remember_me
   page.has_button?("Log in")
@@ -39,6 +43,18 @@ def sign_in(elements, path, message, remember_me = false)
   current_path.should == path
   page.has_content?(message).should == true
 end
+
+def forgot_password(email)
+  visit_sign_in_page
+
+  page.has_content?("Forgot your password?").should == true
+  fill_in 'Email', :with => email
+  page.has_button?("Reset my password!")
+  click_button "Reset my password"
+  current_path.should == root_path
+  page.has_content?('Instructions have been sent to your email.').should == true
+end
+
 ######################################
 
 describe "Authentication" do
@@ -77,6 +93,10 @@ describe "Authentication" do
       sign_in({"Email" => "test@example.com", "Password" => "bad"}, sessions_path, 
 		"Email or password was invalid")
     end
+  end
+  
+  describe "Forgot password" do
+    it { forgot_password("test@example.com") }
   end
   
   describe "Sign out" do
