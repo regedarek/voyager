@@ -7,7 +7,7 @@ describe PasswordResetsController do
       @user = User.create!( :email => "test@example.com", 
                             :password => "secret", 
 	                          :password_confirmation => "secret", 
-                            :username => "testuser")     
+                            :username => "testuser")
     end
     
     it "successful" do
@@ -21,14 +21,17 @@ describe PasswordResetsController do
     end
     
     it "assign @user" do
+      User.stub(:find_by_email).and_return(@user)
       post :create, :email => "test@examle.com"
       assigns[:user].should eq(@user)
     end
     
     context "if user exist" do
       it "deliver reset password instructions" do
+        User.stub(:find_by_email).and_return(@user)
         @user.should_receive(:deliver_reset_password_instructions!)
         post :create, :email => "test@example.com" 
+        assigns[:user].should eq(@user)
       end
     end
   end
