@@ -1,15 +1,14 @@
 require 'spec_helper'
 
 describe PasswordResetsController do
-
   describe "POST 'create'" do
     before(:each) do
       @user = User.create!( :email => "test@example.com", 
-                            :password => "secret", 
+                          :password => "secret", 
 	                          :password_confirmation => "secret", 
                             :username => "testuser")
-    end
-    
+    end  
+  
     it "successful" do
       post :create
       response.should redirect_to root_path
@@ -57,8 +56,6 @@ describe PasswordResetsController do
       get :edit, :id => 3142342
       assigns[:token].should eq("3142342")
     end
-    
-    it "assign token by id params"
 
     context "if not user" do
       it "not authenticated" do
@@ -73,6 +70,29 @@ describe PasswordResetsController do
   end
   
   describe "PUT 'update'" do
+    it "be successful" do
+      pending
+      put :update, :id => 4, :token => 31423242
+      response.should redirect_to root_path
+    end
+    
+    it "assign @token by token params" do
+      pending
+      put :update, :id => 4, :token => 3142342
+      assigns[:token].should eq("3142342")
+    end
+    
+    it "receive load from reset password token with token" do
+      pending
+      User.should_receive(:load_from_reset_password_token).with("3142342")
+      put :update, :id => 4, :token => 3142342
+    end
+    
+    it "assign @user" do
+      pending
+      put :update, :id => 3142342
+      assigns[:user].should eq(@user)
+    end
   end
 
 end
