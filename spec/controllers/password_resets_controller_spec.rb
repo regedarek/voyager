@@ -71,5 +71,8 @@ describe PasswordResetsController do
       end
     end
   end
+  
+  describe "PUT 'update'" do
+  end
 
 end
