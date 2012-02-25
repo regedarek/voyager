@@ -65,8 +65,8 @@ end
 ActionMailer::Base.smtp_settings = {
   :address => 'smtp.gmail.com',
   :port => 587,
-  :domain => 'voyager-dev.herokuapp.com',
+  :domain => 'gmail.com',
   :authentication => :plain,
-  :user_name => 'mkrajewski90@gmail.com',
-  :password => 'secret'
+  :user_name => 'voyagerappsite@gmail.com',
+  :password => 'travel2012'
 } 
