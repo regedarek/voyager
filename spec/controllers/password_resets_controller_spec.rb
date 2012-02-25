@@ -38,13 +38,37 @@ describe PasswordResetsController do
   
   describe "GET 'edit'" do
     it "returns http success" do
+      pending
       get :edit, :id => 1
       response.should be_success
     end
     
     it "receive load from password token from token in params" do
-      User.should_receive(:load_from_activation_token)
-      get :edit, :id => 1
+      User.should_receive(:load_from_reset_password_token).with("3142342")
+      get :edit, :id => 3142342
+    end
+    
+    it "assign @user" do
+      get :edit, :id => 3142342
+      assigns[:user].should eq(@user)
+    end
+    
+    it "assign @token" do
+      get :edit, :id => 3142342
+      assigns[:token].should eq("3142342")
+    end
+    
+    it "assign token by id params"
+
+    context "if not user" do
+      it "not authenticated" do
+        pending
+        @user = nil
+        assigns[:user].should eq(@user)
+        should_receive(:not_authenticated)
+        get :edit, :id => 3142342
+        response.should_not be_success
+      end
     end
   end
 

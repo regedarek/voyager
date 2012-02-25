@@ -44,7 +44,7 @@ def sign_in(elements, path, message, remember_me = false)
   page.has_content?(message).should == true
 end
 
-def forgot_password(email)
+def send_forgot_password_email(email)
   visit_sign_in_page
 
   page.has_content?("Forgot your password?").should == true
@@ -55,6 +55,11 @@ def forgot_password(email)
   page.has_content?('Instructions have been sent to your email.').should == true
 end
 
+def change_password(elements)
+  send_forgot_password_email(elements["email"])
+  visit edit_password_reset_path(127)
+  fill_in_fields(elements)
+end
 ######################################
 
 describe "Authentication" do
@@ -96,7 +101,15 @@ describe "Authentication" do
   end
   
   describe "Forgot password" do
-    it { forgot_password("test@example.com") }
+    it "send email with link to change password" do
+      send_forgot_password_email("test@example.com")   
+    end
+    
+    it "change password" do
+      pending
+      change_password("Email" => "test@example.com", 
+        "Password" => "secret", "Password confirmation" => "secret" ) 
+    end
   end
   
   describe "Sign out" do

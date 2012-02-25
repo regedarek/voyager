@@ -1,2 +1,7 @@
-%h1 PasswordResets#edit
-%p Find me in app/views/password_resets/edit.html.haml
+%h1 Reset password
+
+= simple_form_for @user do |f|
+  = f.input :email
+  = f.input :password
+  = f.input :password_confirmation
+  = f.button :submit
