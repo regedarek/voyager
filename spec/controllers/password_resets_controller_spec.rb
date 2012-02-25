@@ -41,6 +41,11 @@ describe PasswordResetsController do
       get :edit, :id => 1
       response.should be_success
     end
+    
+    it "receive load from password token from token in params" do
+      User.should_receive(:load_from_activation_token)
+      get :edit, :id => 1
+    end
   end
 
 end
