@@ -58,6 +58,8 @@ Voyager::Application.configure do
   # Send deprecation notices to registered listeners
   config.active_support.deprecation = :notify
   # ActionMailer::Base.delivery_method = :sendmail
+  
+  config.action_mailer.default_url_options = { :host => 'voyager-dev.heroku.com' }
 end
 
 
@@ -68,5 +70,6 @@ ActionMailer::Base.smtp_settings = {
   :domain => 'gmail.com',
   :authentication => :plain,
   :user_name => 'voyagerappsite@gmail.com',
-  :password => 'travel2012'
+  :password => 'travel2012',
+  :enable_starttls_auto => true
 } 
