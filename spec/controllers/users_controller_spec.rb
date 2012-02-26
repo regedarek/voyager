@@ -65,4 +65,41 @@ describe UsersController do
     end
   end
 
+  describe "GET 'activate'" do
+    context "user exist" do    
+      before(:each) do
+        @user = User.create!( :email => "test@example.com", 
+                              :password => "secret", 
+	                            :password_confirmation => "secret", 
+                              :username => "testuser") 
+      end
+    
+      it "User receive load_from_activation_token" do
+        User.should_receive(:load_from_activation_token).with(@user.id.to_s)
+        get :activate, :id => @user.id
+      end
+
+      it "receive activate! for user" do
+        pending
+        User.should_receive(:load_from_activation_token).with(@user.id.to_s)
+        assigns[:user].should eq(@user)
+        @user.should_receive(:activate!)
+        get :activate, :id => @user.id
+      end      
+      
+      it "redirect to login path" do
+        pending
+        get :activate, :id => @user.id
+        response.should redirect_to login_path        
+      end
+    end
+    
+    context "user not exist" do
+      it "not authenticated" do
+        pending
+        get :activate, :id => 1
+        response should redirect_to root_path
+      end
+    end
+  end
 end

@@ -1,6 +1,11 @@
 Voyager::Application.routes.draw do
   resources :password_resets
-  resources :users
+  resources :users do
+    member do
+      get :activate
+    end
+  end
+  
   resources :sessions
   
   get "login" => "sessions#new", :as => :login

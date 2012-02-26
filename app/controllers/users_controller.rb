@@ -11,5 +11,14 @@ class UsersController < ApplicationController
       render :new
     end
   end
-
+  
+  def activate
+    @user = User.load_from_activation_token(params[:id])
+    if @user
+      @user.activate!
+      redirect_to login_path, :notice => 'User was successfully activated.'
+    else
+      not_authenticated
+    end
+  end
 end
