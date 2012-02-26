@@ -75,7 +75,6 @@ describe UsersController do
       end
     
       it "User receive load_from_activation_token" do
-        pending
         User.should_receive(:load_from_activation_token).with(@user.id.to_s)
         get :activate, :id => @user.id
       end
