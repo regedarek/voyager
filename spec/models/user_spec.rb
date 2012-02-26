@@ -30,4 +30,8 @@ describe User do
       end
     end
   end
+  
+  describe "associations" do
+    it { should have_many(:authentications).dependent(:destroy) }
+  end
 end
