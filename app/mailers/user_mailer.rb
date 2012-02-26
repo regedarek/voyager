@@ -3,7 +3,7 @@ class UserMailer < ActionMailer::Base
 
   def activation_needed_email(user)
     @user = user
-    @url = "http://voyager-dev.herokuapp.com/users/#{user.activation_code}/activate"
+    @url = "http://voyager-dev.herokuapp.com/users/#{user.activation_token}/activate"
     mail(:to => user.email, :subject => "Welcome to Voyager - Cracow social community page!")
   end
   
