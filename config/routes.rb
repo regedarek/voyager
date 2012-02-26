@@ -1,5 +1,5 @@
 Voyager::Application.routes.draw do
-  get "oauths/oauth"
+  match "oauth/:provider" => "oauths#oauth", :as => :auth_at_provider
 
   get "oauths/callback"
 
