@@ -1,4 +1,8 @@
 Voyager::Application.routes.draw do
+  get "oauths/oauth"
+
+  get "oauths/callback"
+
   resources :password_resets
   resources :users do
     member do
