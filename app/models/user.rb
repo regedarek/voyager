@@ -8,4 +8,6 @@ class User < ActiveRecord::Base
   validates :email, :presence => true
   validates :password, :presence => true
   validates :password_confirmation, :presence => true
+
+  has_many :authentications, :dependent => :destroy
 end

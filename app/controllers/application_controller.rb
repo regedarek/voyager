@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
 
   helper_method :current_users_list
   
-  protected
+  #protected
   def current_users_list
     current_users.map { |u| u.username }.join(", ")
   end

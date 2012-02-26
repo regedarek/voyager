@@ -1,10 +1,11 @@
 require "spec_helper"
 
 def i_have_user
-  User.create!( :email => "test@example.com", 
-                :password => "secret", 
-	              :password_confirmation => "secret", 
-                :username => "testuser")  
+  user = User.create!(:email => "test@example.com", 
+                      :password => "secret", 
+	                    :password_confirmation => "secret", 
+                      :username => "testuser")
+  user.activate!              
 end
 
 def fill_in_fields(elements)
