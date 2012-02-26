@@ -73,6 +73,3 @@ ActionMailer::Base.smtp_settings = {
   :password => 'travel2012',
   :enable_starttls_auto => true
 } 
-
-TWITTER_KEY = 'OD7SDd4lQNkAHxI09oLvZA'
-TWITTER_SECRET = 'jGK2Rv4ZfAwSHWhgRGDU71t5j1dDkXgwvq2qlYVsWo'
