@@ -48,7 +48,8 @@ Rails.application.config.sorcery.configure do |config|
   config.twitter.key = "OD7SDd4lQNkAHxI09oLvZA"
   config.twitter.secret = "jGK2Rv4ZfAwSHWhgRGDU71t5j1dDkXgwvq2qlYVsWo"
   config.twitter.callback_url = "http://voyager-dev.herokuapp.com/oauth/callback?provider=twitter"
-  config.twitter.user_info_mapping = {:email => "mkrajewski90@gmail.com"}
+  config.twitter.user_info_mapping = {:email => "email"}
+  
   #  # config.facebook.key = "34cebc81c08a521bc66e212f947d73ec"
   # config.facebook.secret = "5b458d179f61d4f036ee66a497ffbcd0"
   # config.facebook.callback_url = "http://0.0.0.0:3000/oauth/callback?provider=facebook"
