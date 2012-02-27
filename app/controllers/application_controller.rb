@@ -1,6 +1,8 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
   
+  # next, for user and admin controllers put in it filter,
+  # and remove from controller visible for guest
   before_filter :require_login
     
   helper_method :current_users_list
