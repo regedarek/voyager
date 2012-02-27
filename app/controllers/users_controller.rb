@@ -13,6 +13,10 @@ class UsersController < ApplicationController
       render :new
     end
   end
+
+  def edit
+
+  end
   
   def activate
     @user = User.load_from_activation_token(params[:id])

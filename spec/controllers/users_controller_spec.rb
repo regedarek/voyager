@@ -103,4 +103,11 @@ describe UsersController do
       end
     end
   end
+
+  describe "GET 'edit'" do
+    it "response successful" do
+      get :edit, :id => "10"
+      response.should be_success
+    end
+  end
 end
