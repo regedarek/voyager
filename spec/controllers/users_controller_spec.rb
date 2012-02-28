@@ -105,9 +105,25 @@ describe UsersController do
   end
 
   describe "GET 'edit'" do
+    before(:each) do
+        @user = User.create!( :email => "test@example.com", 
+                              :password => "secret", 
+	                      :password_confirmation => "secret", 
+                              :username => "testuser") 
+    end
+
     it "response successful" do
-      get :edit, :id => "10"
+      pending
+      get :edit, :id => @user.id
       response.should be_success
+    end
+  end
+
+  describe "PUT 'update'" do
+    it "redirect_to edit" do
+      pending
+      put :update, :id => 4
+      response.should redirect_to edit_user_path(4)
     end
   end
 end
