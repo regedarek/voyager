@@ -30,7 +30,14 @@ GEM
       activesupport (= 3.1.1)
     activesupport (3.1.1)
       multi_json (~> 1.0)
+    acts-as-messageable (0.4.5)
+      activerecord (>= 3.0.0)
+      activesupport (>= 3.0.0)
+      ancestry (~> 1.2.4)
+      railties (>= 3.0.0)
     addressable (2.2.6)
+    ancestry (1.2.4)
+      activerecord (>= 2.2.2)
     ansi (1.4.2)
     arel (2.2.1)
     autotest (4.4.6)
@@ -212,6 +219,7 @@ PLATFORMS
 
 DEPENDENCIES
   ZenTest
+  acts-as-messageable
   autotest
   autotest-rails
   cancan

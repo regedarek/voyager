@@ -2,8 +2,9 @@ class User < ActiveRecord::Base
   authenticates_with_sorcery! do |config|
     config.authentications_class = Authentication
   end
+  acts_as_messageable
 
-  attr_accessible :username, :password, :password_confirmation, 
+  attr_accessible :username, :password, :password_confirmation,
     :email, :remember_me, :authentications_attributes
   validates_confirmation_of :password
 
