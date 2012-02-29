@@ -1,8 +1,5 @@
 def i_have_user
-  user = User.create!(:email => "test@example.com", 
-                      :password => "secret", 
-	                    :password_confirmation => "secret", 
-                      :username => "testuser")
+  user = FactoryGirl.create(:user)
   user.activate!              
 end
 
@@ -47,7 +44,7 @@ def send_forgot_password_email(email)
   visit_sign_in_page
 
   page.has_content?("Forgot your password?").should == true
-  fill_in 'Email', :with => email
+  fill_in 'Email', :with => email 
   page.has_button?("Reset my password!")
   click_button "Reset my password"
   current_path.should == root_path

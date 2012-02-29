@@ -1,70 +1,73 @@
 require 'spec_helper'
 
 describe PasswordResetsController do
-  describe "POST 'create'" do
-    before(:each) do
-      @user = User.create!( :email => "test@example.com", 
-                          :password => "secret", 
-	                          :password_confirmation => "secret", 
-                            :username => "testuser")
-    end  
+  describe "#create" do
+    before(:each) { @user = FactoryGirl.build(:user)} 
   
-    it "successful" do
-      post :create
-      response.should redirect_to root_path
-    end
-    
-    it "find user by email" do
-      User.should_receive(:find_by_email).and_return(@user)
-      post :create, :email => "test@example.com"
-    end
-    
-    it "assign @user" do
-      User.stub(:find_by_email).and_return(@user)
-      post :create, :email => "test@examle.com"
-      assigns[:user].should eq(@user)
-    end
-    
-    context "if user exist" do
+    context "user exist" do
+      before(:each) { User.stub(:find_by_email).and_return(@user) }      
+      
+      it "assign @user" do
+        post :create, :email => "user@example.com"
+        assigns[:user].should eq(@user) 
+      end
+      
       it "deliver reset password instructions" do
-        User.stub(:find_by_email).and_return(@user)
         @user.should_receive(:deliver_reset_password_instructions!)
-        post :create, :email => "test@example.com" 
+        post :create, :email => "user@example.com" 
         assigns[:user].should eq(@user)
       end
+      
+      it "have flash notice"
+
+      it "redirect to root_path" do
+        post :create
+        response.should redirect_to root_path        
+      end
     end
+    
+    context "user not exist"    # => do something if user not exist
+
   end
   
-  describe "GET 'edit'" do
-    it "returns http success" do
-      pending
-      get :edit, :id => 1
-      response.should be_success
+  describe "#edit" do
+    before(:each) do 
+      @user = FactoryGirl.build(:user)
+      @user.deliver_reset_password_instructions!
     end
-    
+
     it "receive load from password token from token in params" do
-      User.should_receive(:load_from_reset_password_token).with("3142342")
-      get :edit, :id => 3142342
-    end
+      @user.deliver_reset_password_instructions!
+      User.should_receive(:load_from_reset_password_token).with(@user.reset_password_token)
+      get :edit, :id => @user.reset_password_token
+    end    
     
     it "assign @user" do
-      get :edit, :id => 3142342
+      get :edit, :id => @user.reset_password_token
       assigns[:user].should eq(@user)
     end
     
     it "assign @token" do
-      get :edit, :id => 3142342
-      assigns[:token].should eq("3142342")
+      get :edit, :id => @user.reset_password_token
+      assigns[:token].should eq(@user.reset_password_token)
     end
 
-    context "if not user" do
-      it "not authenticated" do
-        pending
+    
+    context "user exist" do      
+      it "returns http success" do
+        get :edit, :id => @user.reset_password_token
+        response.should be_success
+      end
+    end
+    
+    context "user not exist" do
+      it "not be sucsess" do
         @user = nil
-        assigns[:user].should eq(@user)
-        should_receive(:not_authenticated)
-        get :edit, :id => 3142342
+        assigns(:user).should eq(nil)
+        get :edit, :id => "4324"
         response.should_not be_success
+        response.should redirect_to login_path
+        #should_receive(:not_authenticated)
       end
     end
   end

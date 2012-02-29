@@ -3,8 +3,8 @@ require "spec_helper"
 describe "Edit profile" do
   context "required data" do
     before(:each) do
-      sign_in({"Email" => "test@example.com", "Password" => "secret"},root_path, "Logged in!")
-      @user = User.find_by_email("test@example.com")
+      sign_in({"Email" => "user@example.com", "Password" => "secret"},root_path, "Logged in!")
+      @user = User.find_by_email("user@example.com")
     end
 
     it "change email" do
