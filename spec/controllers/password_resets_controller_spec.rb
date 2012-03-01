@@ -72,17 +72,15 @@ describe PasswordResetsController do
     end
   end
   
-  describe "PUT 'update'" do
-    it "be successful" do
-      pending
-      put :update, :id => 4, :token => 31423242
-      response.should redirect_to root_path
+  describe "#update" do
+    before(:each) do 
+      @user = FactoryGirl.build(:user)
+      @user.deliver_reset_password_instructions!
     end
     
     it "assign @token by token params" do
-      pending
-      put :update, :id => 4, :token => 3142342
-      assigns[:token].should eq("3142342")
+      put :update, :token => @user.reset_password_token # 4, :token => 3142342 # @user.reset_password_token
+      assigns[:token].should eq(@user.reset_password_token)
     end
     
     it "receive load from reset password token with token" do
@@ -96,6 +94,17 @@ describe PasswordResetsController do
       put :update, :id => 3142342
       assigns[:user].should eq(@user)
     end
+    
+    context "user can change password" do
+      it "be successful" do
+        pending
+        put :update, :id => 4, :token => 31423242
+        response.should redirect_to root_path
+      end      
+    end
+    
+    context "user can't change password"
+
   end
 
 end
