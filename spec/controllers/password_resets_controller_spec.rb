@@ -74,12 +74,16 @@ describe PasswordResetsController do
   
   describe "#update" do
     before(:each) do 
-      @user = FactoryGirl.build(:user)
+      @user = FactoryGirl.create(:user)
       @user.deliver_reset_password_instructions!
     end
     
+    # {"utf8"=>"✓", "authenticity_token"=>"ZDY8cjj3V/yJ59VTgfjkbnA2zHa9LfssCwDKZ35+sjQ=", 
+    # "user"=>{"password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, 
+    # "token"=>"y4VbGzEBHsywqZQmKtqQ", "commit"=>"Update User", "id"=>"1"} 
     it "assign @token by token params" do
-      put :update, :token => @user.reset_password_token # 4, :token => 3142342 # @user.reset_password_token
+      pending
+      put :update,  "token"=> @user.reset_password_token, "id"=> @user.id
       assigns[:token].should eq(@user.reset_password_token)
     end
     

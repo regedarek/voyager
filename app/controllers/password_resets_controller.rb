@@ -7,7 +7,7 @@ class PasswordResetsController < ApplicationController
       @user.deliver_reset_password_instructions! 
       redirect_to root_path, :notice => "Instructions have been sent to your email."
     else
-      redirect_to root_path, :notice => 'Instructions have been sent to your email.' #"User not found."
+      redirect_to root_path, :notice => "User not found." #'Instructions have been sent to your email.' #"User not found."
     end
   end
   
