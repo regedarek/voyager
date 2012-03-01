@@ -3,13 +3,7 @@ require 'capybara/rspec'
 
 
 def login
-  @user = User.create!(:email => "test@example.com", :password => "secret", 
-	  "password_confirmation" => "secret", :username => "testuser") 
-  #visit(login_path)
-  #fill_in "Email", :with => "test@example.com"
-  #fill_in "Password", :with => "secret"
-  #click_button("Sign in")
-
+  @user = FactoryGirl.create(:user)
   login_user @user
 end
 

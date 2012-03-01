@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   # load_and_authorize_resource
+  skip_before_filter :require_login
   
   def new
     @user = User.new
@@ -11,6 +12,19 @@ class UsersController < ApplicationController
       redirect_to root_path, :notice => "Signed up!"
     else
       render :new
+    end
+  end
+
+  def edit
+    @user = User.find(params[:id])
+  end
+
+  def update
+    @user = User.find(params[:id])
+    if @user.update_attributes!(params[:user])
+      redirect_to edit_user_path(params[:id]), :notice => "Parameters update."
+    else
+      render :action => 'edit'
     end
   end
   
