@@ -1,0 +1,7 @@
+Last sent messages[
+= @user.sent_messages.size
+]:
+- @user.sent_messages.each do |message|
+  = message.topic
+  %br
+

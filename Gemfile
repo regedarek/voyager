@@ -28,7 +28,13 @@ group :development, :test do
   gem 'factory_girl_rails'
   gem 'turn', :require => false
   gem 'launchy'
-
+  gem 'spork', '~> 1.0rc'
+  gem 'libnotify'
+  gem 'rb-inotify'
+  gem 'guard', '>= 1.0.0'
+  gem "guard-rspec"
+  gem 'guard-spork'
+  gem 'hpricot'
   #group :autotest do
   gem 'ZenTest'
   gem 'autotest'

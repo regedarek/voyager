@@ -2,9 +2,9 @@
 %html
   %head
     %title Voyager
-    = stylesheet_link_tag    "application" 
-    = javascript_include_tag "application" 
-    = csrf_meta_tags 
+    = stylesheet_link_tag    "application"
+    = javascript_include_tag "application"
+    = csrf_meta_tags
   %body
     - if flash[:notice]
       = flash[:notice]
@@ -14,9 +14,10 @@
       Logged in as #{current_user.email}
       = link_to "Log out", logout_path
       = link_to "Profile", edit_user_path(current_user)
+      = link_to "Inbox", message_path(current_user)
     - else
       = link_to "Sign up", signup_path
-      |     
+      |
       = link_to "Log in", login_path
       |
       = link_to 'Login with Twitter', auth_at_provider_path(:provider => :twitter)

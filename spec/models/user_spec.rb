@@ -1,5 +1,4 @@
 require 'spec_helper'
-
 describe User do
   describe "validation" do
     context "validate presence of attributes" do
@@ -22,7 +21,7 @@ describe User do
       end
     end
   end
-  
+
   describe "associations" do
     it { should have_many(:authentications).dependent(:destroy) }
   end
