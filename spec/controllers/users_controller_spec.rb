@@ -3,6 +3,13 @@ require 'spec_helper'
 describe UsersController do
 
   describe "#new" do
+    it "http success" do
+      get :index
+      response.should be_success
+    end
+  end
+  
+  describe "#new" do
     let(:user) { mock_model(User).as_null_object }
     before { User.stub(:new).and_return(user) }
   
