@@ -1,12 +1,13 @@
 require 'spec_helper'
 
 describe UsersController do
-  let(:user) { mock_model(User).as_null_object }
-  before { User.stub(:new).and_return(user) }
 
-  describe "GET 'new'" do
+  describe "#new" do
+    let(:user) { mock_model(User).as_null_object }
+    before { User.stub(:new).and_return(user) }
+  
     it "returns http success" do
-      get 'new'
+      get :new
       response.should be_success
     end
 
@@ -21,14 +22,15 @@ describe UsersController do
     end
   end
 
-  describe "POST 'create'" do
+  describe "#create" do
+    let(:user) { mock_model(User).as_null_object }
+    before { User.stub(:new).and_return(user) }
+    
     it "creates a new user" do
-      User.should_receive(:new).with("username" => "testuser",
-        "email" =>"user@example.com", "password" => "secret", 
-        "password_confirmation" => "secret").and_return(user)
-      post :create, :user => { "username" => "testuser",
-        "email" =>"user@example.com", "password" => "secret", 
-        "password_confirmation" => "secret" }
+      hash = { "username" => "testuser", "email" =>"user@example.com", 
+        "password" => "secret", "password_confirmation" => "secret" }
+      User.should_receive(:new).with(hash).and_return(user)
+      post :create, :user => hash
     end
 
     it "saves the messages" do
@@ -65,65 +67,85 @@ describe UsersController do
     end
   end
 
-  describe "GET 'activate'" do
-    context "user exist" do    
-      before(:each) do
-        @user = User.create!(  :email => "test@example.com", 
-                              :password => "secret", 
-	                            :password_confirmation => "secret", 
-                              :username => "testuser") 
-      end
+  describe "#activate" do
+    before(:each) { @user = FactoryGirl.create(:user) }
     
-      it "User receive load_from_activation_token" do
-        pending
-        User.should_receive(:load_from_activation_token).with(@user.id.to_s)
-        get :activate, :id => @user.id
-      end
+    it "User receive load_from_activation_token" do
+      User.should_receive(:load_from_activation_token).with(@user.activation_token)
+      get :activate, :id => @user.activation_token
+    end
 
-      it "receive activate! for user" do
-        pending
-        User.should_receive(:load_from_activation_token).with(@user.id.to_s)
-        assigns[:user].should eq(@user)
-        @user.should_receive(:activate!)
-        get :activate, :id => @user.id
-      end      
+    it "assign @user" do
+      get :activate, :id => @user.activation_token
+      assigns[:user].should eq(@user)
+    end     
+    
+    context "user exist" do    
+      it "activate" do
+        User.any_instance.should_receive(:activate!)
+        get :activate, :id => @user.activation_token
+      end
       
       it "redirect to login path" do
-        pending
-        get :activate, :id => @user.id
+        get :activate, :id => @user.activation_token
         response.should redirect_to login_path        
       end
     end
     
     context "user not exist" do
       it "not authenticated" do
-        pending
         get :activate, :id => 1
-        response should redirect_to root_path
+        response.should redirect_to login_url
       end
     end
   end
 
-  describe "GET 'edit'" do
-    before(:each) do
-        @user = User.create!( :email => "test@example.com", 
-                              :password => "secret", 
-	                      :password_confirmation => "secret", 
-                              :username => "testuser") 
-    end
-
+  describe "#edit" do
+    before(:each) { @user = FactoryGirl.create(:user) }
+  
     it "response successful" do
-      pending
       get :edit, :id => @user.id
       response.should be_success
     end
+    
+    it "User receive find with id" do
+      User.should_receive(:find).with(@user.id.to_s)
+      get :edit, :id => @user.id
+    end
+
+    it "assign @user" do
+      get :edit, :id => @user.id
+      assigns[:user].should eq(@user)
+    end  
   end
 
-  describe "PUT 'update'" do
-    it "redirect_to edit" do
-      pending
-      put :update, :id => 4
-      response.should redirect_to edit_user_path(4)
+  describe "#update" do
+    before(:each) { @user = FactoryGirl.create(:user) }
+
+    it "assign @user" do
+      put :update, :id => @user.id, :user => { :password => "secret", :password_confirmation => "secret" }
+      assigns[:user].should eq(@user)
     end
+    
+    it "User update attributes" do
+      User.any_instance.should_receive(:update_attributes!)
+      put :update, :id => @user.id, :user => { :password => "secret", :password_confirmation => "secret" }
+    end
+    
+    context "update attributes" do
+      it "redirect to edit users" do
+        put :update, :id => @user.id, :user => { :password => "secret", :password_confirmation => "secret" }
+        response.should redirect_to edit_user_path(@user.id)
+      end
+      
+      it "has notice"
+    end
+    
+    context "not update attributes" do
+      it "render new action" do
+        User.any_instance.stub(:update_attributes!).and_return(false)
+        put :update, :id => @user.id, :user => { :password => "secret", :password_confirmation => "secret" }
+      end
+    end  
   end
 end
