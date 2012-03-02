@@ -2,6 +2,43 @@ require 'spec_helper'
 
 describe UsersController do
 
+  describe "#index" do
+    it "http success" do
+      get :index
+      response.should be_success
+    end
+    
+    it "gets all users" do
+      User.should_receive(:all)
+      get :index
+    end
+    
+    it "assing @users" do
+      get :index
+      assigns(:users).should eq(User.all)
+    end
+  end
+  
+  describe "#show" do
+    let(:user) { mock_model(User).as_null_object }
+    
+    it "http success" do
+      get :show, :id => user
+      response.should be_success
+    end
+    
+    it "get concrete user" do
+      User.should_receive(:find).and_return(user)
+      get :show, :id => user
+    end
+    
+    it "assign @user" do
+      User.stub(:find).and_return(user)
+      get :show, :id => user
+      assigns(:user).should eq(user)
+    end
+  end
+  
   describe "#new" do
     let(:user) { mock_model(User).as_null_object }
     before { User.stub(:new).and_return(user) }
