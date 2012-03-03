@@ -1,0 +1,5 @@
+= link_to message.topic, message_path(message.id)
+by
+= message.from.username
+= message.body
+= time_ago_in_words(message.created_at)

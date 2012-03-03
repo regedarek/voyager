@@ -2,8 +2,8 @@ require "spec_helper"
 
 describe "Private Messages" do
   before(:each) do
-    @alice = FactoryGirl.create(:user)
-    @bob = FactoryGirl.create(:user, :username => "bob", :email => "bob@t.pl")
+    @alice = FactoryGirl.create(:user, :username => "alice", :email => "alice@email.com")
+    @bob = FactoryGirl.create(:user, :username => "bob", :email => "bob@email.com")
     @alice.activate!
     @bob.activate!
   end
@@ -20,13 +20,30 @@ describe "Private Messages" do
     page.has_link?("Inbox").should be_false
   end
 
-  it "should list sent messages in inbox" do
-    @alice.send_message(@bob, :topic => "Helou bob!", :body => "What's up?")
+  it "should list last messages in inbox" do
+    @bob.send_message(@alice, :topic => "Helou alice!", :body => "What's up?")
     visit_sign_in_page
-    fill_in_fields("Email" => "user@example.com", "Password" => "secret")
+    fill_in_fields("Email" => "alice@email.com", "Password" => "secret")
     click_button ("Log in")
     click_link("Inbox")
 
-    page.should have_content("Helou bob!")
+    page.should have_content("Helou alice!")
+    page.should have_content("bob")
+    page.should have_content("less than a minute")
+    page.should have_content("What's up?")
+
+    #TODO avatar + remove + mark_as_read
+  end
+
+  it "should send new message" do
+    visit_sign_in_page
+    fill_in_fields("Email" => "alice@email.com", "Password" => "secret")
+    click_button ("Log in")
+    page.should have_content("Logged")
+    visit new_message_path
+    fill_in :to, :with => "bob@email.com"
+    fill_in :topic, :with => "Helou bob!"
+    fill_in :body, :with => "Whats'up?"
+    click_button :send
   end
 end
