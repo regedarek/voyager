@@ -41,9 +41,12 @@ describe "Private Messages" do
     click_button ("Log in")
     page.should have_content("Logged")
     visit new_message_path
-    fill_in :to, :with => "bob@email.com"
-    fill_in :topic, :with => "Helou bob!"
-    fill_in :body, :with => "Whats'up?"
-    click_button :send
+    fill_in "To", :with => "bob@email.com"
+    fill_in "Topic", :with => "Helou bob!"
+    fill_in "Body", :with => "Whats'up?"
+    click_button "Send Message"
+    current_path.should == root_path
   end
+
+  it "should raise a error if email dont exist"
 end

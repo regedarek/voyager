@@ -12,7 +12,8 @@ class MessagesController < ApplicationController
   end
 
   def create
-    @to = User.find_by_email(params[:to])
-    current_user.send_message(@to, params[:topic], params[:body])
+    @to = User.find_by_email(params[:message][:to])
+    current_user.send_message(@to, params[:message][:topic], params[:message][:body])
+    redirect_to root_url
   end
 end
