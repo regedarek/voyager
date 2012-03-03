@@ -2,7 +2,11 @@ Voyager::Application.routes.draw do
   match "oauth/:provider" => "oauths#oauth", :as => :auth_at_provider
   match "oauth/callback" => "oauths#callback"
 
-  resources :messages
+  resources :messages do
+    collection do
+      get :outbox
+    end
+  end
   resources :password_resets
   resources :users do
     member do

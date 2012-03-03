@@ -49,4 +49,43 @@ describe "Private Messages" do
   end
 
   it "should raise a error if email dont exist"
+
+  it "should be visible sent messages" do
+    @bob.send_message(@alice, :topic => "Helou alice!", :body => "What's up?")
+    visit_sign_in_page
+    fill_in_fields("Email" => "bob@email.com", "Password" => "secret")
+    click_button ("Log in")
+    page.should have_content("Logged")
+    visit messages_path
+    click_link ("Outbox")
+    current_path.should == outbox_messages_path
+    page.should have_content("Helou alice!")
+  end
+
+  it "should be availible to mark as read" do
+    @bob.send_message(@alice, :topic => "Helou alice!", :body => "What's up?")
+    visit_sign_in_page
+    fill_in_fields("Email" => "alice@email.com", "Password" => "secret")
+    click_button ("Log in")
+    page.should have_content("Logged")
+    visit messages_path
+    page.should have_content("Helou alice!")
+
+    #TODO
+    # click_link ("Mark as read")
+  end
+
+  it "should be availible to delete messages", :focus do
+    @bob.send_message(@alice, :topic => "Helou alice!", :body => "What's up?")
+    visit_sign_in_page
+    fill_in_fields("Email" => "alice@email.com", "Password" => "secret")
+    click_button ("Log in")
+    page.should have_content("Logged")
+    visit messages_path
+    page.should have_content("Helou alice!")
+
+    click_link ("Delete")
+    current_path.should == messages_path
+    page.should_not have_content("Helou alice!")
+  end
 end

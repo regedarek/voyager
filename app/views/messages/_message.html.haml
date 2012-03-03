@@ -1,5 +1,7 @@
-= link_to message.topic, message_path(message.id)
+= message.topic
 by
 = message.from.username
 = message.body
 = time_ago_in_words(message.created_at)
+-# = link_to "Mark as read", mark_message_path(message.id)
+= link_to "Delete", message_path(message.id), :method => :delete

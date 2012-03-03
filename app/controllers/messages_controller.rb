@@ -3,8 +3,23 @@ class MessagesController < ApplicationController
     @messages = current_user.received_messages
   end
 
+  def outbox
+    @messages = current_user.sent_messages
+  end
+
   def show
     @user = User.find(params[:id])
+  end
+
+  def destroy
+    @message = current_user.messages.with_id(params[:id]).first
+    if @message.destroy
+      flash[:notice] = "All ok"
+    else
+      flash[:error] = "Fail"
+    end
+
+    redirect_to messages_path
   end
 
   def new
