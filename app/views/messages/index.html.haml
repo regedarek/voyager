@@ -1,0 +1,3 @@
+= link_to t(:new_message), new_message_path
+= link_to t(:outbox), outbox_messages_path
+= render :partial => "message", :collection => @messages

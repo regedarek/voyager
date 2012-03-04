@@ -2,19 +2,24 @@ Voyager::Application.routes.draw do
   match "oauth/:provider" => "oauths#oauth", :as => :auth_at_provider
   match "oauth/callback" => "oauths#callback"
 
+  resources :messages do
+    collection do
+      get :outbox
+    end
+  end
   resources :password_resets
   resources :users do
     member do
       get :activate
     end
   end
-  
+
   resources :sessions
-  
+
   get "login" => "sessions#new", :as => :login
   get "logout" => "sessions#destroy", :as => "logout"
   get "signup" => "users#new", :as => :signup
-  
+
 
   root :to => "home#index"
 
