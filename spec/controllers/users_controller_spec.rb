@@ -23,7 +23,8 @@ describe UsersController do
     let(:user) { mock_model(User).as_null_object }
     
     it "http success" do
-      get :show, :id => user
+      @user = FactoryGirl.create(:user)
+      get :show, :id => @user.id
       response.should be_success
     end
     
