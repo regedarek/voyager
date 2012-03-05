@@ -193,11 +193,6 @@ GEM
       ffi (~> 1.0)
       multi_json (~> 1.0)
       rubyzip
-    shoulda (3.0.0)
-      shoulda-context (~> 1.0.0)
-      shoulda-matchers (~> 1.0.0)
-    shoulda-context (1.0.0)
-    shoulda-matchers (1.0.0)
     simple_form (2.0.1)
       actionpack (~> 3.0)
       activemodel (~> 3.0)
@@ -262,7 +257,6 @@ DEPENDENCIES
   recaptcha
   rspec-rails
   sass-rails (~> 3.1.4)
-  shoulda
   simple_form
   sorcery
   spork (~> 1.0rc)
