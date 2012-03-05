@@ -1,8 +1,11 @@
 source 'http://rubygems.org'
 
+# Restricted gems
 gem 'rails', '3.1.1'
 gem 'pg'
 gem 'heroku'
+gem 'therubyracer'
+gem 'execjs'
 
 group :assets do
   gem 'sass-rails',   '~> 3.1.4'
@@ -12,13 +15,26 @@ end
 
 gem 'haml'
 gem 'haml-rails'
-
 gem 'jquery-rails'
 
 # Form builder
 gem 'simple_form'
 gem 'country_select'
 
+# Private Messages
+gem 'acts-as-messageable'
+
+# Forum
+gem 'forem', :git => "git://github.com/regedarek/forem.git"
+
+# Authentication
+gem 'sorcery'
+gem 'recaptcha', :require => "recaptcha/rails"
+
+# Authorization
+gem 'cancan'
+
+# Tests gems
 group :development, :test do
   gem 'cucumber-rails'
   gem 'database_cleaner'
@@ -30,31 +46,15 @@ group :development, :test do
   gem 'launchy'
   gem 'spork', '~> 1.0rc'
   gem 'libnotify'
-  gem 'rb-inotify'
   gem 'guard', '>= 1.0.0'
   gem "guard-rspec"
   gem 'guard-spork'
   gem 'hpricot'
-  #group :autotest do
   gem 'ZenTest'
   gem 'autotest'
   gem 'autotest-rails'
-  #end
 end
 
 group :development do
   gem 'populator'
 end
-
-# Private Messages
-gem 'acts-as-messageable'
-
-# Authentication
-gem 'sorcery'
-gem 'recaptcha', :require => "recaptcha/rails"
-
-# Authorization
-gem 'cancan'
-
-gem 'therubyracer'
-gem 'execjs'

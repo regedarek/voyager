@@ -20,14 +20,14 @@ describe "Private Messages" do
     page.has_link?("Inbox").should be_false
   end
 
-  it "should list last messages in inbox" do
+  it "should list last messages in inbox", :focus do
     @bob.send_message(@alice, :topic => "Helou alice!", :body => "What's up?")
     visit_sign_in_page
     fill_in_fields("Email" => "alice@email.com", "Password" => "secret")
     click_button ("Log in")
     click_link("Inbox")
 
-    page.should have_content("Helou alice!")
+    page.should have_content("Heloi alice!")
     page.should have_content("bob")
     page.should have_content("less than a minute")
     page.should have_content("What's up?")
@@ -75,7 +75,7 @@ describe "Private Messages" do
     # click_link ("Mark as read")
   end
 
-  it "should be availible to delete messages", :focus do
+  it "should be availible to delete messages" do
     @bob.send_message(@alice, :topic => "Helou alice!", :body => "What's up?")
     visit_sign_in_page
     fill_in_fields("Email" => "alice@email.com", "Password" => "secret")

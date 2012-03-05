@@ -18,7 +18,6 @@ class MessagesController < ApplicationController
     else
       flash[:error] = "Fail"
     end
-
     redirect_to messages_path
   end
 

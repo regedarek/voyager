@@ -1,0 +1,138 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+Ability	app/models/ability.rb	/^class Ability$/;"	c
+ActiveSupport	test/test_helper.rb	/^class ActiveSupport::TestCase$/;"	c
+ActsAsMessageable	/home/rege/.rvm/gems/ruby-1.9.3-p0/gems/acts-as-messageable-0.4.5/lib/acts-as-messageable.rb	/^module ActsAsMessageable$/;"	m
+ActsAsMessageable	/home/rege/.rvm/gems/ruby-1.9.3-p0/gems/acts-as-messageable-0.4.5/lib/acts-as-messageable/acts-as-messageable.rb	/^module ActsAsMessageable$/;"	m
+ActsAsMessageable	/home/rege/.rvm/gems/ruby-1.9.3-p0/gems/acts-as-messageable-0.4.5/lib/acts-as-messageable/message.rb	/^module ActsAsMessageable$/;"	m
+ActsAsMessageable	/home/rege/.rvm/gems/ruby-1.9.3-p0/gems/acts-as-messageable-0.4.5/lib/acts-as-messageable/model.rb	/^module ActsAsMessageable$/;"	m
+ActsAsMessageable	/home/rege/.rvm/gems/ruby-1.9.3-p0/gems/acts-as-messageable-0.4.5/lib/acts-as-messageable/relation.rb	/^module ActsAsMessageable$/;"	m
+ActsAsMessageable	/home/rege/.rvm/gems/ruby-1.9.3-p0/gems/acts-as-messageable-0.4.5/lib/generators/acts-as-messageable/migration/migration_generator.rb	/^module ActsAsMessageable$/;"	m
+AddRecipientPermanentDeleteAndSenderPermanentDeleteToMessages	/home/rege/.rvm/gems/ruby-1.9.3-p0/gems/acts-as-messageable-0.4.5/lib/generators/acts-as-messageable/migration/templates/migration_permanent.rb	/^class AddRecipientPermanentDeleteAndSenderPermanentDeleteToMessages < ActiveRecord::Migration$/;"	c
+AddRecipientPermanentDeleteAndSenderPermanentDeleteToMessages	db/migrate/20120229230416_add_recipient_permanent_delete_and_sender_permanent_delete_to_messages.rb	/^class AddRecipientPermanentDeleteAndSenderPermanentDeleteToMessages < ActiveRecord::Migration$/;"	c
+Admin	/home/rege/.rvm/gems/ruby-1.9.3-p0/gems/acts-as-messageable-0.4.5/spec/support/admin.rb	/^class Admin < ActiveRecord::Base$/;"	c
+Application	config/application.rb	/^  class Application < Rails::Application$/;"	c	class:Voyager
+ApplicationController	app/controllers/application_controller.rb	/^class ApplicationController < ActionController::Base$/;"	c
+ApplicationHelper	app/helpers/application_helper.rb	/^module ApplicationHelper$/;"	m
+Authentication	app/models/authentication.rb	/^class Authentication < ActiveRecord::Base$/;"	c
+BrowsingTest	test/performance/browsing_test.rb	/^class BrowsingTest < ActionDispatch::PerformanceTest$/;"	c
+ClassMethods	/home/rege/.rvm/gems/ruby-1.9.3-p0/gems/acts-as-messageable-0.4.5/lib/acts-as-messageable/model.rb	/^    module ClassMethods$/;"	m	class:ActsAsMessageable.Model
+CreateMessagesTable	/home/rege/.rvm/gems/ruby-1.9.3-p0/gems/acts-as-messageable-0.4.5/lib/generators/acts-as-messageable/migration/templates/migration.rb	/^class CreateMessagesTable < ActiveRecord::Migration$/;"	c
+CreateMessagesTable	db/migrate/20120229230415_create_messages_table.rb	/^class CreateMessagesTable < ActiveRecord::Migration$/;"	c
+CustomMessage	/home/rege/.rvm/gems/ruby-1.9.3-p0/gems/acts-as-messageable-0.4.5/spec/custom-class_spec.rb	/^class CustomMessage < ActsAsMessageable::Message; end$/;"	c
+HomeController	app/controllers/home_controller.rb	/^class HomeController < ApplicationController$/;"	c
+HomeHelper	app/helpers/home_helper.rb	/^module HomeHelper$/;"	m
+InstanceMethods	/home/rege/.rvm/gems/ruby-1.9.3-p0/gems/acts-as-messageable-0.4.5/lib/acts-as-messageable/model.rb	/^    module InstanceMethods$/;"	m	class:ActsAsMessageable.Model
+Men	/home/rege/.rvm/gems/ruby-1.9.3-p0/gems/acts-as-messageable-0.4.5/spec/support/user.rb	/^class Men < User$/;"	c
+Message	/home/rege/.rvm/gems/ruby-1.9.3-p0/gems/acts-as-messageable-0.4.5/lib/acts-as-messageable/message.rb	/^  class Message < ::ActiveRecord::Base$/;"	c	class:ActsAsMessageable
+MessagesController	app/controllers/messages_controller.rb	/^class MessagesController < ApplicationController$/;"	c
+MessagesHelper	app/helpers/messages_helper.rb	/^module MessagesHelper$/;"	m
+MigrationGenerator	/home/rege/.rvm/gems/ruby-1.9.3-p0/gems/acts-as-messageable-0.4.5/lib/generators/acts-as-messageable/migration/migration_generator.rb	/^  class MigrationGenerator < Rails::Generators::Base$/;"	c	class:ActsAsMessageable
+Model	/home/rege/.rvm/gems/ruby-1.9.3-p0/gems/acts-as-messageable-0.4.5/lib/acts-as-messageable/model.rb	/^  module Model$/;"	m	class:ActsAsMessageable
+OauthsController	app/controllers/oauths_controller.rb	/^class OauthsController < ApplicationController$/;"	c
+OauthsHelper	app/helpers/oauths_helper.rb	/^module OauthsHelper$/;"	m
+PasswordResetsController	app/controllers/password_resets_controller.rb	/^class PasswordResetsController < ApplicationController$/;"	c
+PasswordResetsHelper	app/helpers/password_resets_helper.rb	/^module PasswordResetsHelper$/;"	m
+Railtie	/home/rege/.rvm/gems/ruby-1.9.3-p0/gems/acts-as-messageable-0.4.5/lib/acts-as-messageable/acts-as-messageable.rb	/^  class Railtie < Rails::Railtie$/;"	c	class:ActsAsMessageable
+Relation	/home/rege/.rvm/gems/ruby-1.9.3-p0/gems/acts-as-messageable-0.4.5/lib/acts-as-messageable/relation.rb	/^  module Relation$/;"	m	class:ActsAsMessageable
+SessionsController	app/controllers/sessions_controller.rb	/^class SessionsController < ApplicationController$/;"	c
+SessionsHelper	app/helpers/sessions_helper.rb	/^module SessionsHelper$/;"	m
+SorceryActivityLogging	db/migrate/20120226021343_sorcery_activity_logging.rb	/^class SorceryActivityLogging < ActiveRecord::Migration$/;"	c
+SorceryCore	db/migrate/20120219101105_sorcery_core.rb	/^class SorceryCore < ActiveRecord::Migration$/;"	c
+SorceryExternal	db/migrate/20120226022702_sorcery_external.rb	/^class SorceryExternal < ActiveRecord::Migration$/;"	c
+SorceryRememberMe	db/migrate/20120224090035_sorcery_remember_me.rb	/^class SorceryRememberMe < ActiveRecord::Migration$/;"	c
+SorceryResetPassword	db/migrate/20120224121921_sorcery_reset_password.rb	/^class SorceryResetPassword < ActiveRecord::Migration$/;"	c
+SorceryUserActivation	db/migrate/20120226001648_sorcery_user_activation.rb	/^class SorceryUserActivation < ActiveRecord::Migration$/;"	c
+User	/home/rege/.rvm/gems/ruby-1.9.3-p0/gems/acts-as-messageable-0.4.5/spec/acts-as-messageable_spec.rb	/^class User < ActiveRecord::Base$/;"	c
+User	/home/rege/.rvm/gems/ruby-1.9.3-p0/gems/acts-as-messageable-0.4.5/spec/support/user.rb	/^class User < ActiveRecord::Base$/;"	c
+User	app/models/user.rb	/^class User < ActiveRecord::Base$/;"	c
+UserMailer	app/mailers/user_mailer.rb	/^class UserMailer < ActionMailer::Base$/;"	c
+UsersController	app/controllers/users_controller.rb	/^class UsersController < ApplicationController$/;"	c
+UsersHelper	app/helpers/users_helper.rb	/^module UsersHelper$/;"	m
+Voyager	config/application.rb	/^module Voyager$/;"	m
+activate	app/controllers/users_controller.rb	/^  def activate$/;"	f	class:UsersController
+activation_needed_email	app/mailers/user_mailer.rb	/^  def activation_needed_email(user)$/;"	f	class:UserMailer
+activation_success_email	app/mailers/user_mailer.rb	/^  def activation_success_email(user)$/;"	f	class:UserMailer
+acts_as_messageable	/home/rege/.rvm/gems/ruby-1.9.3-p0/gems/acts-as-messageable-0.4.5/lib/acts-as-messageable/model.rb	/^      def acts_as_messageable(options = {})$/;"	f	class:ActsAsMessageable.Model.ClassMethods
+callback	app/controllers/oauths_controller.rb	/^  def callback$/;"	f	class:OauthsController
+change_password	spec/support/authentication.rb	/^def change_password(email)$/;"	f
+close	/home/rege/.rvm/gems/ruby-1.9.3-p0/gems/acts-as-messageable-0.4.5/lib/acts-as-messageable/message.rb	/^    def close$/;"	f	class:ActsAsMessageable.Message
+conversation	/home/rege/.rvm/gems/ruby-1.9.3-p0/gems/acts-as-messageable-0.4.5/lib/acts-as-messageable/message.rb	/^    def conversation$/;"	f	class:ActsAsMessageable.Message
+create	app/controllers/messages_controller.rb	/^  def create$/;"	f	class:MessagesController
+create	app/controllers/password_resets_controller.rb	/^  def create$/;"	f	class:PasswordResetsController
+create	app/controllers/sessions_controller.rb	/^  def create$/;"	f	class:SessionsController
+create	app/controllers/users_controller.rb	/^  def create$/;"	f	class:UsersController
+create_database	/home/rege/.rvm/gems/ruby-1.9.3-p0/gems/acts-as-messageable-0.4.5/spec/spec_helper.rb	/^def create_database$/;"	f
+create_migration_file	/home/rege/.rvm/gems/ruby-1.9.3-p0/gems/acts-as-messageable-0.4.5/lib/generators/acts-as-messageable/migration/migration_generator.rb	/^    def create_migration_file$/;"	f	class:ActsAsMessageable.MigrationGenerator
+current_users_list	app/controllers/application_controller.rb	/^  def current_users_list$/;"	f	class:ApplicationController
+delete	/home/rege/.rvm/gems/ruby-1.9.3-p0/gems/acts-as-messageable-0.4.5/lib/acts-as-messageable/message.rb	/^    def delete$/;"	f	class:ActsAsMessageable.Message
+delete_message	/home/rege/.rvm/gems/ruby-1.9.3-p0/gems/acts-as-messageable-0.4.5/lib/acts-as-messageable/model.rb	/^      def delete_message(message)$/;"	f	class:ActsAsMessageable.Model.InstanceMethods
+deleted_messages	/home/rege/.rvm/gems/ruby-1.9.3-p0/gems/acts-as-messageable-0.4.5/lib/acts-as-messageable/model.rb	/^      def deleted_messages$/;"	f	class:ActsAsMessageable.Model.InstanceMethods
+destroy	app/controllers/messages_controller.rb	/^  def destroy$/;"	f	class:MessagesController
+destroy	app/controllers/sessions_controller.rb	/^  def destroy$/;"	f	class:SessionsController
+down	/home/rege/.rvm/gems/ruby-1.9.3-p0/gems/acts-as-messageable-0.4.5/lib/generators/acts-as-messageable/migration/templates/migration.rb	/^  def self.down$/;"	F	class:CreateMessagesTable
+down	/home/rege/.rvm/gems/ruby-1.9.3-p0/gems/acts-as-messageable-0.4.5/lib/generators/acts-as-messageable/migration/templates/migration_permanent.rb	/^  def self.down$/;"	F	class:AddRecipientPermanentDeleteAndSenderPermanentDeleteToMessages
+down	db/migrate/20120219101105_sorcery_core.rb	/^  def self.down$/;"	F	class:SorceryCore
+down	db/migrate/20120224090035_sorcery_remember_me.rb	/^  def self.down$/;"	F	class:SorceryRememberMe
+down	db/migrate/20120224121921_sorcery_reset_password.rb	/^  def self.down$/;"	F	class:SorceryResetPassword
+down	db/migrate/20120226001648_sorcery_user_activation.rb	/^  def self.down$/;"	F	class:SorceryUserActivation
+down	db/migrate/20120226021343_sorcery_activity_logging.rb	/^  def self.down$/;"	F	class:SorceryActivityLogging
+down	db/migrate/20120226022702_sorcery_external.rb	/^  def self.down$/;"	F	class:SorceryExternal
+down	db/migrate/20120229230415_create_messages_table.rb	/^  def self.down$/;"	F	class:CreateMessagesTable
+down	db/migrate/20120229230416_add_recipient_permanent_delete_and_sender_permanent_delete_to_messages.rb	/^  def self.down$/;"	F	class:AddRecipientPermanentDeleteAndSenderPermanentDeleteToMessages
+drop_database	/home/rege/.rvm/gems/ruby-1.9.3-p0/gems/acts-as-messageable-0.4.5/spec/spec_helper.rb	/^def drop_database$/;"	f
+edit	app/controllers/password_resets_controller.rb	/^  def edit$/;"	f	class:PasswordResetsController
+edit	app/controllers/users_controller.rb	/^  def edit$/;"	f	class:UsersController
+fill_in_fields	spec/support/authentication.rb	/^def fill_in_fields(elements)$/;"	f
+from	/home/rege/.rvm/gems/ruby-1.9.3-p0/gems/acts-as-messageable-0.4.5/lib/acts-as-messageable/message.rb	/^    def from$/;"	f	class:ActsAsMessageable.Message
+i_have_user	spec/support/authentication.rb	/^def i_have_user$/;"	f
+included	/home/rege/.rvm/gems/ruby-1.9.3-p0/gems/acts-as-messageable-0.4.5/lib/acts-as-messageable/model.rb	/^    def self.included(base)$/;"	F	class:ActsAsMessageable.Model
+index	app/controllers/home_controller.rb	/^  def index$/;"	f	class:HomeController
+index	app/controllers/messages_controller.rb	/^  def index$/;"	f	class:MessagesController
+initialize	app/models/ability.rb	/^  def initialize(user)$/;"	f	class:Ability
+login	spec/views/layouts/application.html.haml_spec.rb	/^def login$/;"	f
+mark_as_read	/home/rege/.rvm/gems/ruby-1.9.3-p0/gems/acts-as-messageable-0.4.5/lib/acts-as-messageable/message.rb	/^    def mark_as_read$/;"	f	class:ActsAsMessageable.Message
+mark_as_unread	/home/rege/.rvm/gems/ruby-1.9.3-p0/gems/acts-as-messageable-0.4.5/lib/acts-as-messageable/message.rb	/^    def mark_as_unread$/;"	f	class:ActsAsMessageable.Message
+messages	/home/rege/.rvm/gems/ruby-1.9.3-p0/gems/acts-as-messageable-0.4.5/lib/acts-as-messageable/model.rb	/^      def messages(trash = false)$/;"	f	class:ActsAsMessageable.Model.InstanceMethods
+new	app/controllers/messages_controller.rb	/^  def new$/;"	f	class:MessagesController
+new	app/controllers/sessions_controller.rb	/^  def new$/;"	f	class:SessionsController
+new	app/controllers/users_controller.rb	/^  def new$/;"	f	class:UsersController
+next_migration_number	/home/rege/.rvm/gems/ruby-1.9.3-p0/gems/acts-as-messageable-0.4.5/lib/generators/acts-as-messageable/migration/migration_generator.rb	/^    def self.next_migration_number(dirname)$/;"	F	class:ActsAsMessageable.MigrationGenerator
+not_authenticated	app/controllers/application_controller.rb	/^  def not_authenticated$/;"	f	class:ApplicationController
+oauth	app/controllers/oauths_controller.rb	/^  def oauth$/;"	f	class:OauthsController
+open	/home/rege/.rvm/gems/ruby-1.9.3-p0/gems/acts-as-messageable-0.4.5/lib/acts-as-messageable/message.rb	/^    def open$/;"	f	class:ActsAsMessageable.Message
+open?	/home/rege/.rvm/gems/ruby-1.9.3-p0/gems/acts-as-messageable-0.4.5/lib/acts-as-messageable/message.rb	/^    def open?$/;"	f	class:ActsAsMessageable.Message
+outbox	app/controllers/messages_controller.rb	/^  def outbox$/;"	f	class:MessagesController
+participant?	/home/rege/.rvm/gems/ruby-1.9.3-p0/gems/acts-as-messageable-0.4.5/lib/acts-as-messageable/message.rb	/^    def participant?(user)$/;"	f	class:ActsAsMessageable.Message
+process	/home/rege/.rvm/gems/ruby-1.9.3-p0/gems/acts-as-messageable-0.4.5/lib/acts-as-messageable/relation.rb	/^    def process(context = self.relation_context, &block)$/;"	f	class:ActsAsMessageable.Relation
+received_messages	/home/rege/.rvm/gems/ruby-1.9.3-p0/gems/acts-as-messageable-0.4.5/lib/acts-as-messageable/model.rb	/^      def received_messages$/;"	f	class:ActsAsMessageable.Model.InstanceMethods
+reply	/home/rege/.rvm/gems/ruby-1.9.3-p0/gems/acts-as-messageable-0.4.5/lib/acts-as-messageable/message.rb	/^    def reply(*args)$/;"	f	class:ActsAsMessageable.Message
+reply_to	/home/rege/.rvm/gems/ruby-1.9.3-p0/gems/acts-as-messageable-0.4.5/lib/acts-as-messageable/model.rb	/^      def reply_to(message, *args)$/;"	f	class:ActsAsMessageable.Model.InstanceMethods
+reset_password_email	app/mailers/user_mailer.rb	/^  def reset_password_email(user)$/;"	f	class:UserMailer
+resolve_active_record_ancestor	/home/rege/.rvm/gems/ruby-1.9.3-p0/gems/acts-as-messageable-0.4.5/lib/acts-as-messageable/model.rb	/^    def resolve_active_record_ancestor$/;"	f	class:ActsAsMessageable.Model.ClassMethods
+send_forgot_password_email	spec/support/authentication.rb	/^def send_forgot_password_email(email)$/;"	f
+send_message	/home/rege/.rvm/gems/ruby-1.9.3-p0/gems/acts-as-messageable-0.4.5/lib/acts-as-messageable/model.rb	/^      def send_message(to, *args)$/;"	f	class:ActsAsMessageable.Model.InstanceMethods
+send_message	/home/rege/.rvm/gems/ruby-1.9.3-p0/gems/acts-as-messageable-0.4.5/spec/support/send_message.rb	/^def send_message(from=@bob, to=@alice, topic="Topic", body="Body")$/;"	f
+sent_messages	/home/rege/.rvm/gems/ruby-1.9.3-p0/gems/acts-as-messageable-0.4.5/lib/acts-as-messageable/model.rb	/^      def sent_messages$/;"	f	class:ActsAsMessageable.Model.InstanceMethods
+show	app/controllers/messages_controller.rb	/^  def show$/;"	f	class:MessagesController
+sign_in	spec/support/authentication.rb	/^def sign_in(elements, path, message, remember_me = false)$/;"	f
+sign_up	spec/support/authentication.rb	/^def sign_up(elements, path, message)$/;"	f
+test_homepage	test/performance/browsing_test.rb	/^  def test_homepage$/;"	f	class:BrowsingTest
+to	/home/rege/.rvm/gems/ruby-1.9.3-p0/gems/acts-as-messageable-0.4.5/lib/acts-as-messageable/message.rb	/^    def to$/;"	f	class:ActsAsMessageable.Message
+up	/home/rege/.rvm/gems/ruby-1.9.3-p0/gems/acts-as-messageable-0.4.5/lib/generators/acts-as-messageable/migration/templates/migration.rb	/^  def self.up$/;"	F	class:CreateMessagesTable
+up	/home/rege/.rvm/gems/ruby-1.9.3-p0/gems/acts-as-messageable-0.4.5/lib/generators/acts-as-messageable/migration/templates/migration_permanent.rb	/^  def self.up$/;"	F	class:AddRecipientPermanentDeleteAndSenderPermanentDeleteToMessages
+up	db/migrate/20120219101105_sorcery_core.rb	/^  def self.up$/;"	F	class:SorceryCore
+up	db/migrate/20120224090035_sorcery_remember_me.rb	/^  def self.up$/;"	F	class:SorceryRememberMe
+up	db/migrate/20120224121921_sorcery_reset_password.rb	/^  def self.up$/;"	F	class:SorceryResetPassword
+up	db/migrate/20120226001648_sorcery_user_activation.rb	/^  def self.up$/;"	F	class:SorceryUserActivation
+up	db/migrate/20120226021343_sorcery_activity_logging.rb	/^  def self.up$/;"	F	class:SorceryActivityLogging
+up	db/migrate/20120226022702_sorcery_external.rb	/^  def self.up$/;"	F	class:SorceryExternal
+up	db/migrate/20120229230415_create_messages_table.rb	/^  def self.up$/;"	F	class:CreateMessagesTable
+up	db/migrate/20120229230416_add_recipient_permanent_delete_and_sender_permanent_delete_to_messages.rb	/^  def self.up$/;"	F	class:AddRecipientPermanentDeleteAndSenderPermanentDeleteToMessages
+update	app/controllers/password_resets_controller.rb	/^  def update$/;"	f	class:PasswordResetsController
+update	app/controllers/users_controller.rb	/^  def update$/;"	f	class:UsersController
+visit_sign_in_page	spec/support/authentication.rb	/^def visit_sign_in_page$/;"	f
