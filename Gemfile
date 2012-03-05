@@ -40,7 +40,7 @@ group :development, :test do
   gem 'database_cleaner'
   gem 'capybara'
   gem 'rspec-rails'
-  # gem 'shoulda'
+  gem 'shoulda'
   gem 'factory_girl_rails'
   gem 'turn', :require => false
   gem 'launchy'
