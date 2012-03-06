@@ -40,7 +40,6 @@ group :development, :test do
   gem 'database_cleaner'
   gem 'capybara'
   gem 'rspec-rails'
-  gem 'shoulda'
   gem 'factory_girl_rails'
   gem 'turn', :require => false
   gem 'launchy'
@@ -53,6 +52,10 @@ group :development, :test do
   gem 'ZenTest'
   gem 'autotest'
   gem 'autotest-rails'
+end
+
+group :test do
+  gem 'shoulda'
 end
 
 group :development do
