@@ -16,15 +16,15 @@
         %br
         %nav.signup
           - if current_user
-            = link_to "Log out", logout_path
+            = link_to "Log out", main_app.logout_path
             |
-            = link_to "Profile", edit_user_path(current_user)
+            = link_to "Profile", main_app.edit_user_path(current_user)
             |
-            = link_to "Inbox", messages_path
+            = link_to "Inbox", main_app.messages_path
           - else
-            = link_to "Sign up", signup_path
+            = link_to "Sign up", main_app.signup_path
             |
-            = link_to "Log in", login_path
+            = link_to "Log in", main_app.login_path
             %br
             = link_to 'Login with Twitter', auth_at_provider_path(:provider => :twitter)
         %br
@@ -32,7 +32,9 @@
         %nav.navigation
           = link_to "Home", root_path
           |
-          = link_to "Users", users_path
+          = link_to "Users", main_app.users_path
+          |
+          = link_to "Forum", main_app.forem_path
     .main
       .container
         Main

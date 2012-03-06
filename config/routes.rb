@@ -1,4 +1,5 @@
 Voyager::Application.routes.draw do
+  mount Forem::Engine, :at => "/forums"
   match "oauth/:provider" => "oauths#oauth", :as => :auth_at_provider
   match "oauth/callback" => "oauths#callback"
 
