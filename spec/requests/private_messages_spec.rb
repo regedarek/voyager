@@ -48,7 +48,19 @@ describe "Private Messages" do
     current_path.should == root_path
   end
 
-  it "should raise a error if email dont exist"
+  it "should redirect to new if email dont exist" do
+    visit_sign_in_page
+    fill_in_fields("Email" => "alice@email.com", "Password" => "secret")
+    click_button ("Log in")
+    page.should have_content("Logged")
+    visit new_message_path
+    fill_in "To", :with => "wrong_bob@email.com"
+    fill_in "Topic", :with => "Helou bob!"
+    fill_in "Body", :with => "Whats'up?"
+    click_button "Send Message"
+    page.should have_content("Wrong email")
+    current_path.should ==  new_message_path
+  end
 
   it "should be visible sent messages" do
     @bob.send_message(@alice, :topic => "Helou alice!", :body => "What's up?")

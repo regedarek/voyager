@@ -27,7 +27,12 @@ class MessagesController < ApplicationController
 
   def create
     @to = User.find_by_email(params[:message][:to])
-    current_user.send_message(@to, params[:message][:topic], params[:message][:body])
-    redirect_to root_url
+    if @to
+      current_user.send_message(@to, params[:message][:topic], params[:message][:body])
+      redirect_to root_url
+    else
+      flash[:error] = "Wrong email!"
+      redirect_to new_message_path
+    end
   end
 end

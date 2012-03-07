@@ -8,8 +8,8 @@
   %body
     %header
       .container
-        - if flash[:notice]
-          = flash[:notice]
+        - flash.each do |name, msg|
+          = content_tag :div, msg, :id => "flash_#{name}", :class=>"alert-message error"
         - if current_user
           Logged in as #{current_user.email}
 
