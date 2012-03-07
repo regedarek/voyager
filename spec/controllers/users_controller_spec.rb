@@ -3,20 +3,16 @@ require 'spec_helper'
 describe UsersController do
 
   describe "#index" do
-    it "http success" do
-      get :index
-      response.should be_success
+    context "get" do
+      before { get :index }
+      it { should assign_to(:users).with(User.all) }
+      it { should respond_with(:success) }
     end
     
     it "gets all users" do
       User.should_receive(:all)
       get :index
-    end
-    
-    it "assing @users" do
-      get :index
-      assigns(:users).should eq(User.all)
-    end
+    end 
   end
   
   describe "#show" do
@@ -42,21 +38,17 @@ describe UsersController do
   
   describe "#new" do
     let(:user) { mock_model(User).as_null_object }
-    before { User.stub(:new).and_return(user) }
-  
-    it "returns http success" do
-      get :new
-      response.should be_success
-    end
+    before(:each) { User.stub(:new).and_return(user) }
 
+    context "get" do
+      before { get :new }
+      it { should assign_to(:user).with(user) }
+      it { should respond_with(:success) }
+    end
+ 
     it "creates new user object" do
       User.should_receive(:new)
       get :new
-    end
-
-    it "assign @user" do
-      get :new
-      assigns[:user].should eq(user)
     end
   end
 
@@ -162,7 +154,7 @@ describe UsersController do
 
     it "assign @user" do
       put :update, :id => @user.id, :user => { :password => "secret", :password_confirmation => "secret" }
-      assigns[:user].should eq(@user)
+      should assign_to(:user).with(@user)
     end
     
     it "User update attributes" do
